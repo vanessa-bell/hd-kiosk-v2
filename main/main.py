@@ -27,6 +27,7 @@ import auth
 import control
 import model
 import task
+import faq
 
 from api import helpers
 

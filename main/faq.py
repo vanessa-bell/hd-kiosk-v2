@@ -32,3 +32,37 @@ def faq_create():
 		title='Create FAQ',
 		form=form,
 	)
+
+@app.route('/faqs/')
+@auth.login_required
+def faqs_list():
+  faq_dbs, faq_cursor = model.Faq.get_dbs(
+      user_key=auth.current_user_key(),
+    )
+
+  return flask.render_template(
+      'faqs_list.html',
+      html_class='faqs-list',
+      title='Frequently Asked Questions',
+      contact_dbs=faq_dbs,
+      next_url=util.generate_next_url(faq_cursor),
+    )
+
+@app.route('/faqs/<int:faq_id>/update/', methods=['GET', 'POST'])
+@auth.login_required
+def faq_update(faq_id):
+  faq_db = model.Faq.get_by_id(faq_id)
+  if not faq_db or faq_db.user_key != auth.current_user_key():
+    flask.abort(404)
+  form = FaqUpdateForm(obj=faq_db)
+  if form.validate_on_submit():
+    form.populate_obj(faq_db)
+    faq_db.put()
+    return flask.redirect(flask.url_for('faqs_list', order='-modified'))
+  return flask.render_template(
+      'faq_update.html',
+      html_class='faq-update',
+      title=faq_db.name,
+      form=form,
+      faq_db=faq_db,
+    )

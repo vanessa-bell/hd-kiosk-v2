@@ -14,6 +14,14 @@ from main import app
 def welcome():
   return flask.redirect('/faqs/')
 
+@app.route('/building-map/')
+def building_map():
+	return flask.render_template(
+		'building-map.html',
+		html_class='building-map',
+		title='Building Map',
+	)
+
 
 ###############################################################################
 # Sitemap stuff

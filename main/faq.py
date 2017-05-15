@@ -34,7 +34,7 @@ def faq_create():
 	)
 
 @app.route('/faqs/')
-@auth.login_required
+# @auth.login_required
 def faqs_list():
   faq_dbs, faq_cursor = model.Faq.get_dbs(
       user_key=auth.current_user_key(),
@@ -44,7 +44,7 @@ def faqs_list():
       'faqs_list.html',
       html_class='faqs-list',
       title='Frequently Asked Questions',
-      contact_dbs=faq_dbs,
+      faq_dbs=faq_dbs,
       next_url=util.generate_next_url(faq_cursor),
     )
 

@@ -6,6 +6,27 @@
   </div>
   <div class="row">
     <div class="col-md-12 text-center">
+    	<p class="text-center"><i class="fa fa-info-circle" aria-hidden="true"></i> Tap an event to learn more.</p>
+		        <div class="event-list list-group well">
+			        # for event in data|groupby('day_raw')
+			        # for event in event.list 
+			        	# if event.day != yesterday
+			        	<a class="event list-group-item" href='https://events.hackerdojo.com/event/{{event.id}}' target="_blank">
+				        	<div>
+				        		<h4>{{ event.name }}</h4>
+				        		<p>{{ event.type }}</p>
+				        		<p><strong>Date:</strong> {{ event.day }}</p>
+				        		<p><strong>Time:</strong> {{ event.start }} - {{ event.end }}</p>
+				        		<p><strong>Room:</strong>
+									{% for room in event.rooms %}
+										{{ room }}
+									{% endfor %}</p>
+				        	</div>
+			        	</a>
+			        	# endif
+				        
+			        # endfor 
+			      	# endfor
     </div>
   </div>
 # endblock

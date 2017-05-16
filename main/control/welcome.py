@@ -14,13 +14,30 @@ from main import app
 def welcome():
   return flask.redirect('/faqs/')
 
-@app.route('/building-map/')
+@app.route('/building_map/')
 def building_map():
 	return flask.render_template(
 		'building-map.html',
 		html_class='building-map',
 		title='Building Map',
 	)
+
+@app.route('/about_us/')
+def about_us():
+	return flask.render_template(
+		'about-us.html',
+		html_class='about-us',
+		title='About Us',
+	)
+
+@app.route('/membership/')
+def membership():
+	return flask.render_template(
+		'membership.html',
+		html_class='membership',
+		title='Membership',
+	)
+
 
 
 ###############################################################################

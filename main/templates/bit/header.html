@@ -11,10 +11,11 @@
     </div>
     <nav class="collapse navbar-collapse">
       <ul class="nav nav-tabs">
-        <li role="presentation" class="active"><a href="/faqs">FAQs</a></li>
-        <li role="presentation"><a href="/events">Events</a></li>
-        <li role="presentation"><a href="/building-map">Building Map</a></li>
-        <li role="presentation"><a href="/membership">Membership</a></li>
+        <li role="presentation" class=""><a href="{{url_for('faqs_list')}}">FAQs</a></li>
+        <li role="presentation" class=""><a href="{{url_for('events')}}">Events</a></li>
+        <li role="presentation" class=""><a href="{{url_for('building_map')}}">Building Map</a></li>
+        <li role="presentation" class=""><a href="{{url_for('about_us')}}">About Us</a></li>
+        <li role="presentation" class=""><a href="{{url_for('membership')}}">Membership</a></li>
       </ul>
       <!-- <ul class="nav navbar-nav navbar-right">
         # include 'bit/user_menu.html'

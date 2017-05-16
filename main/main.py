@@ -28,6 +28,7 @@ import control
 import model
 import task
 import faq
+import events
 
 from api import helpers
 

@@ -11,5 +11,6 @@ main/lib.zip
 main/static/dev
 main/static/ext
 main/static/min
+main/libx/
 node_modules
 temp/

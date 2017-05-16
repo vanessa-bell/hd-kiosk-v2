@@ -3,16 +3,28 @@ import flask
 from datetime import date, datetime, timedelta
 
 import requests
-import requests_toolbelt.adapters.appengine
+import ssl
+import config
+
+import requests_toolbelt
+
+if config.DEVELOPMENT:
+  requests_toolbelt.adapters.__path__.append('./lib/requests_toolbelt/adapters')
+else:
+  requests_toolbelt.adapters.__path__.append('lib.zip/requests_toolbelt/adapters')
+
+from requests_toolbelt.adapters import appengine
+
 import json
 
 from main import app
 
 # Use the App Engine Requests adapter. This makes sure that Requests uses
 # URLFetch.
-requests_toolbelt.adapters.appengine.monkeypatch()
+appengine.monkeypatch()
 
 @app.route('/events/')
+
 
 def events():
 	url = 'https://events.hackerdojo.com/events.json'
@@ -21,7 +33,6 @@ def events():
 	
 	yesterday = datetime.strftime(date.today() - timedelta(1), "%A, %B %d, %Y")
 	today = datetime.strftime(date.today(), "%A, %B %d, %Y")
-	print(yesterday)
 
 	for event in data:
 		event['start_time'] = datetime.strptime(event['start_time'], '%Y-%m-%dT%H:%M:%S')
@@ -36,6 +47,6 @@ def events():
 		html_class='events',
 		title='Upcoming Events',
 		data=data,
+		today=today,
 		yesterday=yesterday,
-		today=today
 	)

@@ -14,9 +14,11 @@ class FaqUpdateForm(flask_wtf.FlaskForm):
   category = wtforms.SelectField('Category', [wtforms.validators.required()], choices=[('About/History','About/History'),('Financials','Financials'),('The Physical Space','The Physical Space'),('Other Hackerspaces','Other Hackerspaces'),('Paperwork and Logistics','Paperwork and Logistics'),('Miscellaneous','Miscellaneous')])
 
 @app.route('/faqs/create/', methods=['GET', 'POST'])
-@auth.login_required
+# @auth.login_required
+
 def faq_create():
 	form = FaqUpdateForm()
+
 	if form.validate_on_submit():
 		faq_db = model.Faq(
 			user_key=auth.current_user_key(),
@@ -26,6 +28,9 @@ def faq_create():
 		)
 		faq_db.put()
 		return flask.redirect(flask.url_for('welcome'))
+
+  
+
 	return flask.render_template(
 		'faq_create.html',
 		html_class='faq-create',
@@ -34,7 +39,7 @@ def faq_create():
 	)
 
 @app.route('/faqs/')
-# @auth.login_required
+# TODO: let admin edit or delete faqs
 def faqs_list():
   faq_dbs, faq_cursor = model.Faq.get_dbs(
       user_key=auth.current_user_key(),
@@ -49,7 +54,8 @@ def faqs_list():
     )
 
 @app.route('/faqs/<int:faq_id>/update/', methods=['GET', 'POST'])
-@auth.login_required
+# @auth.login_required
+
 def faq_update(faq_id):
   faq_db = model.Faq.get_by_id(faq_id)
   if not faq_db or faq_db.user_key != auth.current_user_key():

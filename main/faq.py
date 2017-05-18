@@ -58,17 +58,18 @@ def faqs_list():
 
 def faq_update(faq_id):
   faq_db = model.Faq.get_by_id(faq_id)
-  if not faq_db or faq_db.user_key != auth.current_user_key():
+  if not faq_db: 
+    # or faq_db.user_key != auth.current_user_key()
     flask.abort(404)
   form = FaqUpdateForm(obj=faq_db)
   if form.validate_on_submit():
     form.populate_obj(faq_db)
     faq_db.put()
-    return flask.redirect(flask.url_for('faqs_list', order='-modified'))
+    return flask.redirect(flask.url_for('faqs_list'))
   return flask.render_template(
       'faq_update.html',
       html_class='faq-update',
-      title=faq_db.name,
+      title=faq_db.question,
       form=form,
       faq_db=faq_db,
     )

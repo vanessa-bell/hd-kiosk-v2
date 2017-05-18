@@ -19,7 +19,12 @@
             </div>
             </a>
             <div id="collapse{{faq.key.id()}}" class="panel-collapse collapse">
-              <div class="panel-body">{{faq.answer}}</div>
+              <div class="panel-body">
+              {{faq.answer}}
+              <a href="{{url_for('faq_update', faq_id=faq.key.id())}}">
+                <p>Edit this FAQ</p>
+              </a>
+              </div>
             </div>
           </div>
           # endfor

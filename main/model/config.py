@@ -17,7 +17,7 @@ class Config(model.Base, model.ConfigAuth):
   anonymous_recaptcha = ndb.BooleanProperty(default=False, verbose_name='Use reCAPTCHA in forms for unauthorized users')
   brand_name = ndb.StringProperty(default=config.APPLICATION_ID)
   check_unique_email = ndb.BooleanProperty(default=True, verbose_name='Check for uniqueness of the verified emails')
-  email_authentication = ndb.BooleanProperty(default=False, verbose_name='Email authentication for sign in/sign up')
+  email_authentication = ndb.BooleanProperty(default=True, verbose_name='Email authentication for sign in/sign up')
   feedback_email = ndb.StringProperty(default='')
   flask_secret_key = ndb.StringProperty(default=util.uuid())
   letsencrypt_challenge = ndb.StringProperty(default='', verbose_name=u'Let’s Encrypt Challenge')

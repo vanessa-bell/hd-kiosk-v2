@@ -10,13 +10,11 @@
       <form method="POST" action=".">
         <fieldset>
           {{form.csrf_token}}
-
           {{forms.textarea_field(form.question, autofocus=True)}}
           {{forms.textarea_field(form.answer)}}
           {{forms.text_field(form.category)}}
-
           <button type="submit" class="btn btn-primary btn-block">
-            Create FAQ
+            Update FAQ
           </button>
         </fieldset>
       </form>

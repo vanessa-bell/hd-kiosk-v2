@@ -243,8 +243,8 @@ class SignUpForm(flask_wtf.FlaskForm):
   )
   recaptcha = flask_wtf.RecaptchaField()
 
-
 @app.route('/signup/', methods=['GET', 'POST'])
+
 def signup():
   next_url = util.get_next_url()
   form = None

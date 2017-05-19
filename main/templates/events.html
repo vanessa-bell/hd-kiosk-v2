@@ -10,17 +10,26 @@
 		        <div class="event-list list-group well">
 			        # for event in data|groupby('day_raw')
 			        # for event in event.list 
+			        	{{event.grouper}}
 			        	# if event.day != yesterday
-			        	<a class="event list-group-item" href='https://events.hackerdojo.com/event/{{event.id}}' target="_blank">
+			        	<a data-fancybox class="event list-group-item" data-src='https://events.hackerdojo.com/event/{{event.id}}' data-options='{"scrolling" : "yes"}' href="javascript:;">
 				        	<div>
+				        	# if event.status == 'canceled'
+			        		<h1 style="color: red;">CANCELED</h1>
+			        		<del style="color: red;">
+			        		# endif
 				        		<h4>{{ event.name }}</h4>
 				        		<p>{{ event.type }}</p>
 				        		<p><strong>Date:</strong> {{ event.day }}</p>
 				        		<p><strong>Time:</strong> {{ event.start }} - {{ event.end }}</p>
 				        		<p><strong>Room:</strong>
-									{% for room in event.rooms %}
+									# for room in event.rooms 
 										{{ room }}
-									{% endfor %}</p>
+									# endfor 
+								</p>
+							# if event.status == 'canceled'
+								</del>
+							# endif
 				        	</div>
 			        	</a>
 			        	# endif

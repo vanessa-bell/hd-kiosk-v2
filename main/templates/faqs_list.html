@@ -11,9 +11,9 @@
         <div class="panel-group">
           # for faq in faq_db.list
           <div class="panel panel-default">
-            <a id='accordion' data-toggle="collapse" href="#collapse{{faq.key.id()}}">
-            <div class="panel-heading">
-              <h4 class="panel-title">
+            <a id='accordion' class="faq" data-toggle="collapse" href="#collapse{{faq.key.id()}}">
+            <div class="panel-heading" >
+              <h4 class="panel-title" id="{{faq.key.id()}}">
                 {{faq.question}}
               </h4>
             </div>
@@ -35,4 +35,31 @@
       # endfor
     </div>
   </div>
+  <script>
+  addEventListener("DOMContentLoaded", function() {
+    var faqs = document.querySelectorAll(".faq");
+    for (var i=0, l=faqs.length; i<l; i++) {
+      var faq = faqs[i];
+      
+      faq.addEventListener("click", function(e) {
+
+        e.preventDefault();
+
+        var clickedFaq = e.target;
+        var faq_key = clickedFaq.id;
+
+        var request = new XMLHttpRequest();
+        request.onload = function() {
+            // We could do more interesting things with the response
+            // or, we could ignore it entirely
+            alert(request.responseText);
+        };
+
+
+        request.open("GET", "/faqs/"+faq_key+"/count/" , true);
+        request.send();
+      });
+    }
+  }, true);
+  </script>
 # endblock

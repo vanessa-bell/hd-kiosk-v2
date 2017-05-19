@@ -5,6 +5,7 @@ import wtforms
 import auth
 import model
 import util
+from google.appengine.ext import ndb
 
 from main import app
 
@@ -69,4 +70,29 @@ def faq_update(faq_id):
       title=faq_db.question,
       form=form,
       faq_db=faq_db,
+      faq_id=faq_id
     )
+
+@app.route('/faqs/<int:faq_id>/delete/', methods=['GET', 'POST'])
+@auth.login_required
+
+def faq_delete(faq_id):
+  faq_key = ndb.Key("Faq",faq_id)
+  faq_key.delete()
+  faq_dbs = model.Faq.get_dbs()
+  return flask.redirect(flask.url_for('faqs_list'))
+  
+
+@app.route('/faqs/<int:faq_id>/count/', methods=['GET', 'POST'])
+def faq_count(faq_id):
+    stat_db = model.Stat(
+      faq_key=ndb.Key("Faq",faq_id),
+    )
+    stat_db.put()
+
+    faq_db = model.Faq.get_by_id(faq_id)
+    print(faq_db)
+    faq_db.count = faq_db.count + 1
+    faq_db.put()
+    return 'done'
+    # return response, 200, {'Content-Type': 'text/plain'}

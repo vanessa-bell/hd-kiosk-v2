@@ -14,7 +14,7 @@ class FaqUpdateForm(flask_wtf.FlaskForm):
   category = wtforms.SelectField('Category', [wtforms.validators.required()], choices=[('About/History','About/History'),('Financials','Financials'),('The Physical Space','The Physical Space'),('Other Hackerspaces','Other Hackerspaces'),('Paperwork and Logistics','Paperwork and Logistics'),('Miscellaneous','Miscellaneous')])
 
 @app.route('/faqs/create/', methods=['GET', 'POST'])
-# @auth.login_required
+@auth.login_required
 
 def faq_create():
 	form = FaqUpdateForm()
@@ -39,7 +39,6 @@ def faq_create():
 	)
 
 @app.route('/faqs/')
-# TODO: let admin edit or delete faqs
 def faqs_list():
   faq_dbs, faq_cursor = model.Faq.get_dbs(
       user_key=auth.current_user_key(),
@@ -54,7 +53,7 @@ def faqs_list():
     )
 
 @app.route('/faqs/<int:faq_id>/update/', methods=['GET', 'POST'])
-# @auth.login_required
+@auth.login_required
 
 def faq_update(faq_id):
   faq_db = model.Faq.get_by_id(faq_id)

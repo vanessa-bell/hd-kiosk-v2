@@ -1,0 +1,48 @@
+# extends 'base.html'
+
+# block content
+  <div class="page-header">
+    <h1 class="text-center">{{title}}</h1>
+  </div>
+  <div class="row">
+    <div class="col-md-12 text-center">
+      # for faq_db in faq_dbs|groupby('category')
+        <h3>{{faq_db.grouper}}</h3>
+        <table class="table table-striped">
+       
+          
+        <thead>
+          <tr>
+            <th>Question</th>
+            <th>Answer</th>
+            <th>Click Count</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+         # for faq in faq_db.list
+          <tr>
+            <td>
+                {{faq.question}}
+            </td>
+            <td>
+              {{faq.answer|safe}}
+            </td>
+            <td>
+              {{faq.count}}
+            </td>
+            <td>
+                <a href="{{url_for('faq_update', faq_id=faq.key.id())}}">
+                  Edit this FAQ
+                </a>
+            </td>
+          </tr>
+          # endfor
+        </tbody>
+        </table>
+      # endfor
+    </div>
+      
+    </div>
+  </div>
+  # endblock

@@ -20,6 +20,9 @@
           <li class="{{'active' if html_class == 'faq-create'}}">
             <a href="{{url_for('faq_create')}}"><i class="fa fa-file"></i> Create FAQ</a>
           </li>
+          <li class="{{'active' if html_class == 'statistics'}}">
+            <a href="{{url_for('statistics')}}"><i class="fa fa-bar-chart"></i> FAQ Statistics</a>
+          </li>
         # endif
         # include 'bit/user_menu.html'
       </ul>

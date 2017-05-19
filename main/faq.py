@@ -51,6 +51,18 @@ def faqs_list():
       next_url=util.generate_next_url(faq_cursor),
     )
 
+@app.route('/faqs/stats')
+def statistics():
+  faq_dbs, faq_cursor = model.Faq.get_dbs()
+
+  return flask.render_template(
+      'statistics.html',
+      html_class='statistics',
+      title='Statistics',
+      faq_dbs=faq_dbs,
+      next_url=util.generate_next_url(faq_cursor),
+    )
+
 @app.route('/faqs/<int:faq_id>/update/', methods=['GET', 'POST'])
 @auth.login_required
 
@@ -91,7 +103,6 @@ def faq_count(faq_id):
     stat_db.put()
 
     faq_db = model.Faq.get_by_id(faq_id)
-    print(faq_db)
     faq_db.count = faq_db.count + 1
     faq_db.put()
     return 'done'

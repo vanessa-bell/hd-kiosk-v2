@@ -20,7 +20,7 @@
             </a>
             <div id="collapse{{faq.key.id()}}" class="panel-collapse collapse">
               <div class="panel-body">
-              {{faq.answer}}
+              {{faq.answer|safe}}
               # if current_user.admin
                 <a href="{{url_for('faq_update', faq_id=faq.key.id())}}">
                   <p>Edit this FAQ</p>

@@ -16,9 +16,11 @@
         <li role="presentation" class="{{'active' if html_class == 'building-map'}}"><a href="{{url_for('building_map')}}">Building Map</a></li>
         <li role="presentation" class="{{'active' if html_class == 'about-us'}}"><a href="{{url_for('about_us')}}">About Us</a></li>
         <li role="presentation" class="{{'active' if html_class == 'membership'}}"><a href="{{url_for('membership')}}">Membership</a></li>
-        <li class="{{'active' if html_class == 'faq-create'}}">
-          <a href="{{url_for('faq_create')}}"><i class="fa fa-file"></i> Create FAQ</a>
-        </li>
+        # if current_user.admin
+          <li class="{{'active' if html_class == 'faq-create'}}">
+            <a href="{{url_for('faq_create')}}"><i class="fa fa-file"></i> Create FAQ</a>
+          </li>
+        # endif
         # include 'bit/user_menu.html'
       </ul>
     </nav>

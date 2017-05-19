@@ -40,9 +40,7 @@ def faq_create():
 
 @app.route('/faqs/')
 def faqs_list():
-  faq_dbs, faq_cursor = model.Faq.get_dbs(
-      user_key=auth.current_user_key(),
-    )
+  faq_dbs, faq_cursor = model.Faq.get_dbs()
 
   return flask.render_template(
       'faqs_list.html',

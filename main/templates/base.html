@@ -2,6 +2,7 @@
 <html class="{% block html_class %}{{html_class}}{% endblock %}" lang="en">
   <head>
     # include 'bit/meta.html'
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.0.47/jquery.fancybox.min.css">
     <title>
       # block title
         {{title + ' |' if title}}
@@ -28,5 +29,6 @@
     # include 'bit/script.html'
     # block scripts
     # endblock
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.0.47/jquery.fancybox.min.js"></script>
   </body>
 </html>

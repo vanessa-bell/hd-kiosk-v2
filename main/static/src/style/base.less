@@ -33,6 +33,17 @@ body {
   border-bottom: 0px !important;
 }
 
+.nav-tabs > li, .nav-pills > li {
+    // float:none;
+    display:inline-block;
+    *display:inline; /* ie7 fix */
+     zoom:1; /* hasLayout ie7 trigger */
+}
+
+.nav-tabs > li:first-child, .nav-pills > li:first-child{
+  margin-left: 10px;
+}
+
 .nav {
   padding-top: 10px;
 }
@@ -42,12 +53,24 @@ body {
   font-weight: bold;
 }
 
+#stats {
+  height: 65vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+#faqs {
+  height: 60vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
 a:hover, a:focus {
   text-decoration: none !important;
 }
 
 #membership {
-  height: 76vh;
+  height: 70vh;
   overflow-y: scroll;
   overflow-x: hidden;
 }
@@ -61,7 +84,7 @@ a:hover, a:focus {
 }
 
 #about-us {
-  height: 76vh;
+  height: 70vh;
   overflow-y: scroll;
   overflow-x: hidden;
 }
@@ -73,7 +96,7 @@ a:hover, a:focus {
 }
 
 #membership-info {
-  height: 19vh;
+  height: 25vh;
   overflow-y: scroll;
   overflow-x: hidden;
   list-style-type: none;

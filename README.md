@@ -7,17 +7,18 @@ Running and Deploying Hacker Dojo Kiosk
   - If needed, refer to the GAE-init docs on how to
 [install the requirements](http://docs.gae-init.appspot.com/requirement/).
 
-2. Make sure [Gulp][] is installed:
+2. Clone this repo
+
+3. Make sure [Gulp][] is installed within your project:
 ```bash
+$ cd /path/to/hd-kiosk-v2
 $ npm install gulp
 ```
 
-   * If you want to install it globally (recommended): 
+   * If you want to install Gulp globally (recommended): 
 ```bash
 $ npm install -g gulp
 ```
-
-3. Clone this repo
 
 4. Run the Development Environment:
 

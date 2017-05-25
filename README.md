@@ -2,7 +2,7 @@ Running and Deploying Hacker Dojo Kiosk
 ----------------------------------
 1. Make sure you have the following: 
   - [Google App Engine SDK for Python][]
-  - The latest version of [Node.js][] (and npm), [pip][], [virtualenv][]
+  - [Node.js][], [pip][], [virtualenv][]
   - [macOS][] or [Linux][] or [Windows][]
   - If needed, refer to the GAE-init docs on how to
 [install the requirements](http://docs.gae-init.appspot.com/requirement/).
@@ -20,7 +20,16 @@ $ npm install gulp
 $ npm install -g gulp
 ```
 
-4. Run the Development Environment:
+4. Ensure that you are using the latest version of Node.js (and npm) within your project:
+
+```bash
+$ node -v
+$ npm -v
+```
+
+Compare the output to the latest versions listed [here](https://nodejs.org/en/).
+
+5. Run the Development Environment:
 
  ```bash
 $ cd /path/to/hd-kiosk-v2
@@ -32,7 +41,7 @@ $ gulp
 
  * Note that on Windows you may have to try running gulp multiple times.
 
-5. Deploying on Google App Engine:
+6. Deploying on Google App Engine:
 
  ```bash
 $ gulp deploy --project=hackerdojo-kiosk-hrd

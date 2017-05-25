@@ -4,7 +4,7 @@ import os
 import sys
 
 from google.appengine.ext import vendor
-vendor.add('libx')
+vendor.add('lib')
 
 if os.environ.get('SERVER_SOFTWARE', '').startswith('Google App Engine'):
   sys.path.insert(0, 'lib.zip')

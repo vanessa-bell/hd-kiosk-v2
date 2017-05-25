@@ -8,7 +8,17 @@
 				    <h1 class="text-center">{{title}}</h1>
 				</div>
 					<p>Congratulations!  You are joining an awesome tech community! Members are the backbone of Hacker Dojo and without you there would not be an us.  Seriously, a bunch of us just <a target="_blank" href='http://wiki.hackerdojo.com/w/page/27029118/History'>got together in 2009 to lease a warehouse</a>, and we've been growing ever since.</p>
-					<h5 class="membership text-center">Basic membership is $125 per month</h5>
+
+					<div class="row">
+						<div class="text-center">
+							<div class="col-xs-12">
+								<a target="_blank" href='http://signup.hackerdojo.com/?plan=newfull' class="btn btn-success"><strong>Sign Up Now for $125/month</strong></a> 
+								<p id="or">OR </p>
+								<a target="_blank" href='http://signup.hackerdojo.com/reactivate' class="btn btn-info"><strong>Reactivate Your Account</strong></a>
+							</div>
+						</div>
+					</div>
+				
 					<h4>Member perks include:</h4>
 					<ul>
 						<li>Technical Social Collaboration: Talk, meet and <em><strong>learn</strong></em> from other members about technical subjects</li>
@@ -23,52 +33,82 @@
 						<li>Jobs: Plenty of startups looking for employees on our Jobs board</li>
 						<li>AWS credits &amp; additional perks via <a target="_blank" href="http://www.hackerdojo.com/Startup-Program">Startup Program</a></li>
 					</ul>
-					<div class="row">
-						<div class="text-center">
-							<div class="col-xs-12">
-								<a target="_blank" href='http://signup.hackerdojo.com/?plan=newfull' class="btn btn-success">Sign Up Now for $125/month</a> 
-								<p id="or">OR </p>
-								<a target="_blank" href='http://signup.hackerdojo.com/reactivate' class="btn btn-info">Reactivate Your Account</a>
-							</div>
-						</div>
-					</div>
 				</div>
-					<div class="row">
-						<div class="col-sm-10 col-sm-offset-1">
-							<h4>Other Membership Types</h4>
-							<ul class="well" id="membership-info">
-								<li>
-									<h5 class="membership">Weekly</h5>
-									<p>Visiting for a week or want to give us a try first?</p>
-									<a target="_blank" href="http://signup.hackerdojo.com/?plan=weekly" class="btn btn-success">Sign up for $50/week</a></li>
-								<li>
-									<h5 class="membership">Dedicated Desk in the Hive</h5>
-									<p>Your own dedicated desk at the Dojo. Comes with a comfy chair.</p>
-									<a target="_blank" href="http://goo.gl/forms/WsaAqFOwDo" class="btn btn-success">Sign up for $300/month</a>
-								</li>
-								<li>
-									<h5 class="membership">Yearly Plan</h5>
-									<p>Same benefits as the regular membership with a l33t discount.</p>
-									<a target="_blank" href="http://signup.hackerdojo.com/?plan=newyearly" class="btn btn-success">Sign up for $1,337/year</a>
-								</li>
-								<li>
-									<h5 class="membership">Five Year Plan</h5>
-									<p>$5,000. Same benefits as the regular membership with a larger discount.</p>
-									<a target="_blank" href="http://signup.hackerdojo.com/?plan=fiveyear" class="btn btn-success">Sign up for 5 Years in Advance ($5,000)</a>
-								</li>
-								<li>
-									<h5 class="membership">Lite Member (beta)</h5>
-									<p>A reduced rate for members who only use the space during 5:00pm - 9:00am and weekends.</p>
-									<a target="_blank" href="http://signup.hackerdojo.com/?plan=lite" class="btn btn-success">Sign up for $100/Month</a>
-								</li>
-								<li>
-									<h5 class="membership">Hardship Rate</h5>
-									<p>$60/month. For current full-time students who cannot afford the regular rate. Current proof of full time schedule and student ID card are required.</p>
-									<a target="_blank" href="https://www.hackerdojo.com/StudentRateApplication" class="btn btn-success">Apply here</a>
-								</li>
-							</ul>
-						</div>
-					</div>
 			</div>
+			<div class="row" >
+				<h3 class="text-center" id='subheader'>Other Membership Types</h3>
+				<div id='caret' class='text-center'>
+					<i class="fa fa-caret-down fa-2x" aria-hidden="true"></i>
+				</div>
+			</div>
+			<div class='well'>
+				<div class="row" id="membership-info">
+				  
+				  <div class="col-sm-4">
+				    <div class="card">
+				      <div class="card-block">
+				        <h3 class="card-title">Weekly</h3>
+				        <p class="card-text">$50/week. Visiting for a week or want to give us a try first?</p>
+				        <a href="http://signup.hackerdojo.com/?plan=weekly" target="_blank" class="btn btn-success">Sign up</a>
+				      </div>
+				    </div>
+				  </div>
+				  
+				  <div class="col-sm-4">
+				    <div class="card">
+				      <div class="card-block">
+				        <h3 class="card-title">Dedicated Desk in the Hive</h3>
+				        <p class="card-text">$300/month. Your own dedicated desk at the Dojo. Comes with a comfy chair.</p>
+				        <a href="http://goo.gl/forms/WsaAqFOwDo" target="_blank" class="btn btn-success">Sign up</a>
+				      </div>
+				    </div>
+				  </div>
+
+				  <div class="col-sm-4">
+				    <div class="card">
+				      <div class="card-block">
+				        <h3 class="card-title">Yearly Plan</h3>
+				        <p class="card-text">$1,337/year. Same benefits as the regular membership with a l33t discount.</p>
+				        <a target="_blank" href="http://signup.hackerdojo.com/?plan=newyearly" class="btn btn-success">Sign up</a>
+				      </div>
+				    </div>
+				  </div>
+				 </div>
+			<div class='row'>
+				<div class="col-sm-4">
+				    <div class="card">
+				      <div class="card-block">
+				        <h3 class="card-title">Five Year Plan</h3>
+				        <p class="card-text">$5,000. Same benefits as the regular membership with a larger discount.</p>
+				        <a href="http://signup.hackerdojo.com/?plan=fiveyear" target="_blank" class="btn btn-success">Sign up</a>
+				      </div>
+				    </div>
+				  </div>
+				  <div class="col-sm-4">
+				    <div class="card">
+				      <div class="card-block">
+				        <h3 class="card-title">Lite Member (beta)</h3>
+				        <p class="card-text">$100/Month. A reduced rate for members who only use the space during 5:00pm - 9:00am and weekends.</p>
+				        <a href="http://signup.hackerdojo.com/?plan=lite" target="_blank" class="btn btn-success">Sign up</a>
+				      </div>
+				    </div>
+				  </div>
+				  <div class="col-sm-4">
+				    <div class="card">
+				      <div class="card-block">
+				        <h3 class="card-title">Hardship Rate</h3>
+				        <p class="card-text">$60/month. For current full-time students who cannot afford the regular rate. Current proof of full time schedule and student ID card are required.</p>
+				        <a href="https://www.hackerdojo.com/StudentRateApplication" target="_blank" class="btn btn-success">Apply here</a>
+				      </div>
+				    </div>
+				  </div>
+
+				</div>
+				</div>
+				</div>
+			</div>
+		</div>
+			
+		</div>
     </div>
 # endblock

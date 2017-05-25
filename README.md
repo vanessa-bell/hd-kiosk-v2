@@ -16,7 +16,9 @@ If needed, refer to the docs on how to
 $ npm install -g gulp
 ```
 
-3. Run the Development Environment
+3. Clone this repo
+
+4. Run the Development Environment
 
 ```bash
 $ cd /path/to/hd-kiosk-v2
@@ -25,7 +27,7 @@ $ gulp
 
 To test it visit `http://localhost:3000` in your browser.
 
-4. Deploying on Google App Engine
+5. Deploying on Google App Engine
 
 ```bash
 $ gulp deploy --project=hackerdojo-kiosk-hrd

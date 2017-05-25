@@ -1,39 +1,47 @@
-gae-init
-========
-
-Hacker Dojo specific instructions:
+Running and Deploying Hacker Dojo Kiosk
 ----------------------------------
 1. Make sure you have the following: 
   - [Google App Engine SDK for Python][]
-  - [Node.js][], [pip][], [virtualenv][]
+  - The latest version of [Node.js][] (and npm), [pip][], [virtualenv][]
   - [macOS][] or [Linux][] or [Windows][]
-If needed, refer to the docs on how to
+  - If needed, refer to the GAE-init docs on how to
 [install the requirements](http://docs.gae-init.appspot.com/requirement/).
 
-2. Install [Gulp][] as a global package (recommended):
+2. Make sure [Gulp][] is installed:
+```bash
+$ npm install gulp
+```
 
+   * If you want to install it globally (recommended): 
 ```bash
 $ npm install -g gulp
 ```
 
 3. Clone this repo
 
-4. Run the Development Environment
+4. Run the Development Environment:
 
-```bash
+ ```bash
 $ cd /path/to/hd-kiosk-v2
+$ npm install
 $ gulp
 ```
 
-To test it visit `http://localhost:3000` in your browser.
+ Test the site by visiting `http://localhost:3000` in your browser.
 
-5. Deploying on Google App Engine
+ * Note that on Windows you may have to try running gulp multiple times.
 
-```bash
+5. Deploying on Google App Engine:
+
+ ```bash
 $ gulp deploy --project=hackerdojo-kiosk-hrd
 ```
 
-[![Slack Status](https://gae-init-slack.herokuapp.com/badge.svg)](https://gae-init-slack.herokuapp.com)
+**Check out the GAE-init Slack channel if you run into problems:
+[![Slack Status](https://gae-init-slack.herokuapp.com/badge.svg)](https://gae-init-slack.herokuapp.com)**
+
+More about GAE-init:
+----------------------------------
 
 > **gae-init** is the easiest boilerplate to kick start new applications on Google
 App Engine using Python, Flask, RESTful, Bootstrap and tons of other cool features.

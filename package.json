@@ -28,7 +28,7 @@
     "main-bower-files": "2.13.1",
     "require-dir": "0.3.1",
     "uglify-js": "3.0.5",
-    "yargs-parser": "7.0.0"
+    "yargs-parser": "19.0.4"
   },
   "license": "MIT",
   "name": "gae-init",

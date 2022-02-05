@@ -19,7 +19,7 @@ class FaqUpdateForm(flask_wtf.FlaskForm):
 
 def faq_create():
 	form = FaqUpdateForm()
-
+    print('hi')
 	if form.validate_on_submit():
 		faq_db = model.Faq(
 			user_key=auth.current_user_key(),
@@ -30,7 +30,7 @@ def faq_create():
 		faq_db.put()
 		return flask.redirect(flask.url_for('welcome'))
 
-  
+
 
 	return flask.render_template(
 		'faq_create.html',
@@ -68,7 +68,7 @@ def statistics():
 
 def faq_update(faq_id):
   faq_db = model.Faq.get_by_id(faq_id)
-  if not faq_db: 
+  if not faq_db:
     # or faq_db.user_key != auth.current_user_key()
     flask.abort(404)
   form = FaqUpdateForm(obj=faq_db)
@@ -93,7 +93,7 @@ def faq_delete(faq_id):
   faq_key.delete()
   faq_dbs = model.Faq.get_dbs()
   return flask.redirect(flask.url_for('faqs_list'))
-  
+
 
 @app.route('/faqs/<int:faq_id>/count/', methods=['GET', 'POST'])
 def faq_count(faq_id):

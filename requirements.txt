@@ -6,7 +6,7 @@ flask-wtf==0.14.2
 flask==0.12.1
 pyjwt==1.5.0
 unidecode==0.4.20
-webargs==1.6.1
+webargs==5.5.3
 requests==2.14.2
 requests-toolbelt==0.7.1
 urllib3==1.26.5
